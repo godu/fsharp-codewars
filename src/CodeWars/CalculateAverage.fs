@@ -3,4 +3,4 @@ namespace CodeWars
 open System
 
 module CalculateAverage =
-    let calculateAverage:float[]->float= Array.average
+    let calculateAverage:List<float>->float= List.average
