@@ -7,6 +7,12 @@
     "args": [],
     "tasks": [
         {
+            "taskName": "restore",
+            "isBuildCommand": true,
+            "showOutput": "silent",
+            "problemMatcher": "$msCompile"
+        },
+        {
             "taskName": "build",
             "args": ["src/CodeWars/CodeWars.fsproj"],
             "isBuildCommand": true,
