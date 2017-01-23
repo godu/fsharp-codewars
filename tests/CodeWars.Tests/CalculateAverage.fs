@@ -4,14 +4,14 @@ open CodeWars
 open System
 open Xunit
 
-type ClassDataBase(generator : obj [] seq) = 
+type Fixtures(generator : obj [] seq) = 
     interface seq<obj []> with
         member this.GetEnumerator() = generator.GetEnumerator()
         member this.GetEnumerator() = 
             generator.GetEnumerator() :> System.Collections.IEnumerator
 
-type Fixtures() = 
-    inherit ClassDataBase(
+type MyFixtures() = 
+    inherit Fixtures(
         [ 
             [| [1.0;1.0;1.0]; 1.0 |];
             [| [1.0;2.0;3.0]; 2.0 |];
@@ -23,6 +23,6 @@ type Fixtures() =
     )
 
 [<Theory>]
-[<ClassData(typeof<Fixtures>)>]
+[<ClassData(typeof<MyFixtures>)>]
 let ``Should calculare average`` (input, output) =
     Assert.Equal(CalculateAverage.calculateAverage input, output)
